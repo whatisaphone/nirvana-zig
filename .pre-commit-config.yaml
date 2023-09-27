@@ -1,0 +1,24 @@
+# https://pre-commit.com/
+
+repos:
+  - repo: local
+    hooks:
+      - id: fmt
+        name: fmt
+        language: system
+        files: '[.]zig$'
+        entry: zig fmt
+
+      - id: build
+        name: build
+        language: system
+        files: '[.]zig$'
+        pass_filenames: false
+        entry: zig build
+
+      - id: test
+        name: test
+        language: system
+        files: '[.]zig$'
+        pass_filenames: false
+        entry: zig build test
